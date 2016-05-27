@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="grid">
+  {% assign i = 0 %}
+  {% for e in site.experiments %}
+    <div class="grid-col">
+      {% include exp.html e=e link=true %}
+    </div>
+    {% assign i = i | plus: 1 %}
+  {% endfor %}
+  {% assign missing = 4 | minus: i | modulo: 4 %}
+  {% for i in (1..missing) %}
+    <div class="grid-col">
+      {% include exp.html %}
+    </div>
+  {% endfor %}
+  <div class="grid-teasing">
+    {% for i in (1..4) %}
+      <div class="grid-col">
+        {% include exp.html %}
+      </div>
+    {% endfor %}
+    <div class="grid-teasing-notice">
+      <p>no time for social media bb
+      <img class="emoji" title=":v:" alt=":v:" src="https://assets.github.com/images/icons/emoji/unicode/270c.png" height="20" width="20" align="absmiddle">
+      if you like what you see and wanna be notified, subscribe via email…
+      <br/>
+      <a href="">UU00UU NEWSLETTER</a>
+      </p>
+    </div>
+  </div>
+</div>

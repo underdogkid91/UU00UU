@@ -1,0 +1,59 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Colors
+$white:            #F0F0F0;
+$gray-lighter:     #8F8F8F;
+$gray-light:       #5B5B5B;
+$gray:             #484848;
+$gray-dark:        #343434;
+$gray-darker:      #2E2E2E;
+$black:            #1F1F1F;
+
+// Our variables
+$base-font-family: "Fira Mono", monospace;
+$base-font-size:   15px;
+$base-font-weight: 400;
+$base-line-height: 22px;
+
+$spacing-unit:     20px;
+
+$text-color:       $gray-light;
+$background-color: $gray-dark;
+$link-color:       $gray-lighter;
+
+// Width of the content area
+$content-width:    1050px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+// Grid
+$exp-ratio:        177.8%; // 480/270
+
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout"
+;

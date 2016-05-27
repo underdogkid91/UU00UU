@@ -1,0 +1,158 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size} $base-font-family;
+  line-height: $base-line-height;
+  color: $text-color;
+  background-color: $background-color;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: 1em;
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  color: $gray;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: 1em;
+}
+
+li {
+  > ul,
+  > ol {
+     margin-bottom: 0;
+  }
+}
+
+/**
+ * Code
+ */
+tt, code, kbd, samp {
+  font-family: $base-font-family;
+  font-style: italic;
+}
+
+pre,
+code {
+  background-color: $gray-darker;
+  padding: 0 0.5em;
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-size: $base-font-size;
+  font-weight: bold;
+  color: $gray-lighter;
+}
+
+
+
+/**
+ * Links
+ */
+a {
+  color: $link-color;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+/**
+ * Wrappers
+ */
+.wrapper {
+  max-width: $content-width;
+  min-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1em;
+  padding-left: 1em;
+  @extend %clearfix;
+
+  @include media-query($on-laptop) {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+  }
+}
+
+.wrapper-small {
+  max-width: $content-width / 4;
+  min-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1em;
+  padding-left: 1em;
+  @extend %clearfix;
+}
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+

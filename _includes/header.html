@@ -1,0 +1,27 @@
+<div class="header">
+
+  {% if layout.with_back_link %}
+    <a class="header-link-back" href="{{ site.baseurl }}/">all experiments</a>
+  {% endif %}
+
+  {% unless true %}
+    <a class="header-link-info" href="#info">more info</a>
+  {% endunless %}
+
+  <div class="wrapper">
+
+    <a class="header-logo" href="{{ site.baseurl }}/">{{ site.title }}</a>
+
+    {% unless layout.without_nav %}
+      <p class="header-description">{{ site.description }}</p>
+
+      <div class="nav">
+        <a class="nav-link" href="http://uu00uu.tumblr.com">process</a>
+        <a class="nav-link nav-link-home nav-link-active" href="{{ site.baseurl }}">experiments</a>
+        <a class="nav-link" href="{{ site.baseurl | append: '/about' }}">about</a>
+      </div>
+    {% endunless %}
+
+  </div>
+
+</div>

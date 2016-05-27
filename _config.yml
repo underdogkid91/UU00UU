@@ -1,0 +1,39 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: UU00UU
+email: underdogkidkid@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  exploring digital induced conciousenss through interactive visuals and music
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://uu00uu.surge.sh" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: experiments
+    values:
+      layout: experiment
+
+
+# Build experiments with grunt
+collections:
+  experiments:
+    output: true
+    permalink: /e/:path/
+# The source code for the experiments is in src
+# The grunt build exports 
+exclude: [src]
+
+# Plugins
+gems:
+  - jemoji
