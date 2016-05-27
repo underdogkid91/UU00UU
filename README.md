@@ -1,4 +1,27 @@
 
+HOW TO RUN DEVELOPMENT
+----------------------
+
+# setup
+
+- make sure you installed jekyll and grunt in your computer
+- `$ bundle install`
+- `$ npm install`
+- `$ jekyll build`
+- `$ grunt build`
+
+
+# dev mode
+when in dev mode, choose one experiment to work on (requirejs task is
+slow, this way only that experiment is compiled on file changes)
+
+- `$ grunt dev:[experiment_name]` in one terminal
+- `$ jekyll serve` in another terminal
+
+site is served to localhost:4000
+
+
+
 HOW TO ADD AN EXPERIMENT
 ------------------------
 
@@ -11,9 +34,8 @@ release-date: mid july
 ---
 ```
 
-2. create experiment in `src/experiments/[name].js` using requirejs,
-grunt will compile it and export it to `js/e/[name].js` and jekyll
-will copy it to `_site/...`
+2. create experiment in `_src/experiments/[name].js` using requirejs,
+grunt will compile it and export it to `_site/js/e/[name].js`.
 
 3. textures can be added to `textures/` and sounds to `audio/`
 
@@ -47,3 +69,9 @@ the final file structure, after jekyll and grunt:
     └── UU00UUE2-drums.wav
 
 
+HOW TO DEPLOY
+-------------
+
+- install surge, create an acount and a project
+- edit `domain: [...]` in `Gruntfile.js`
+- `$ grunt deploy`

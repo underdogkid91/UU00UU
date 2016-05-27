@@ -1,4 +1,5 @@
 $(function () {
+if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   var $pointer = $('.exp-pointer').first().clone();
   var mouse_position = { x:0, y:0 };
 
@@ -43,4 +44,5 @@ $(function () {
   $('.grid .exp-link').on('mouseleave', function () {
     $pointer.remove();
   });
+}
 });

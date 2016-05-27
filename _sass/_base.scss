@@ -126,11 +126,6 @@ a {
   padding-right: 1em;
   padding-left: 1em;
   @extend %clearfix;
-
-  @include media-query($on-laptop) {
-    padding-right: 0.5em;
-    padding-left: 0.5em;
-  }
 }
 
 .wrapper-small {
