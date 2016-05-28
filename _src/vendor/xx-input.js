@@ -97,8 +97,21 @@ define(function () {
     _onMove: function (x, y) {
       var a = Math.atan(y/x) - (x >= 0 ? - Math.PI : 0);
       this._value = (a + Math.PI / 2) / Math.PI;
+      switch (this._position) {
+        case 'bottom':
+          this._value -= 0.5;
+          break;
+        case 'left':
+          this._value -= 1;
+          break;
+        case 'left':
+          if (this._value < 1.5) this._value += 2;
+          this._value -= 1.5;
+          this._value = 1 - this._value;
+          break;
+      }
       console.log(this._value);
-      var self = tsis;
+      var self = this;
       this._events.forEach(function (cb) {
         cb(self._value);
       });

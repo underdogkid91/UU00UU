@@ -1,0 +1,59 @@
+.xx-input {
+  position: fixed;
+  z-index: 2002;
+}
+
+.xx-input--left   { top:    50%; left:  8%; }
+.xx-input--top    { top:    8%;  left:  50%; }
+.xx-input--right  { top:    50%; right: 8%; }
+.xx-input--bottom { bottom: 8%;  left:  50%; }
+
+.xx-input--inactive .xx-guide {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.xx-input--active .xx-guide {
+  opacity: 1;
+  display: block;
+  transform: scale(1);
+}
+
+.xx-trigger {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.xx-guide {
+  transition: all 0.3s ease-in-out;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.xx-marker {
+  display: block;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
