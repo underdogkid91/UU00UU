@@ -272,7 +272,7 @@
 }
 
 /**
- * Loading Overlay
+ * Experimetn overlays
  */
 @include media-query($on-palm) {
   .loading-overlay {
@@ -293,8 +293,33 @@
       color: $white;
     }
   }
+
+  .ui-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2001;
+    text-align: center;
+    margin: 1em 1.5em;
+    line-height: 2.5em;
+  }
 }
 
+.ui-overlay-link-left,
+.ui-overlay-link-right {
+  color: white;
+  font-weight: bold;
+}
+
+.ui-overlay-link-left {
+  float: left;
+}
+
+.ui-overlay-link-right {
+  float: right;
+}
 
 /**
  * Site footer

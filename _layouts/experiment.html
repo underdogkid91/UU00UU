@@ -14,6 +14,11 @@ with_back_link: true
 </div>
 
 <div class="loading-overlay"></div>
+<div class="ui-overlay">
+  <img class="ui-overlay-icon" src="{{ page.title | prepend: "/assets/e_icons/" | append: ".svg" | prepend: site.baseurl }}" width="100px" height="44px">
+  <a class="ui-overlay-link-left" href="{{ site.baseurl }}/">close</a>
+  <a class="ui-overlay-link-right" href="#info">info</a>
+</div>
 
 <link rel="stylesheet" href="{{ "/assets/xx-ui.css" | prepend: site.baseurl }}">
 <script src="{{ page.title | prepend: '/js/e/' | append: '.js' }}"></script>
