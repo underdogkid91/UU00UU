@@ -8,8 +8,7 @@ define([
   var ColaObject = Dimensions.Object.extend({
     _properties: {
       noise: 0,
-      wave: 1,
-      beat: 0
+      wave: 1
     },
 
     addObjects: function () {
@@ -64,18 +63,11 @@ define([
         //v.x = origin.x * (0.75 + Math.cos(a) / 4);
         //v.z = origin.z * (0.75 + Math.cos(a) / 4);
         //---
-        var a	= value + v.y / ( 0.5 * this.get('wave'));
+        var a	= value * Math.PI * 2 + v.y / ( 0.5 * this.get('wave'));
         v.x = origin.x + Math.cos((v.y / 140) * Math.PI) * (this.get('wave') * Math.cos(a));
         v.z = origin.z + Math.cos((v.y / 140) * Math.PI) * (this.get('wave') * Math.sin(a));
       }, this);
       g.verticesNeedUpdate = true;
-    },
-
-    _setBeat: function (t) {
-      t = 80 * (t / (1000 * 60));
-      if ((t * 4) % 4 < 2) {
-        this.set('scale', 0.6 + 0.05 * Math.sin(t * Math.PI * 2));
-      }
     }
   });
 

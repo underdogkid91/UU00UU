@@ -97,10 +97,10 @@ define([
 
     setScene: function (scene, options) {
       if (scene._camera instanceof THREE.OrthographicCamera) {
-        scene._camera.left = - this.width / 2;
+        scene._camera.left = this.width / -2;
         scene._camera.right = this.width / 2;
-        scene._camera.top = - this.height / 2;
-        scene._camera.bottom = this.height / 2;
+        scene._camera.top = this.height / 2;
+        scene._camera.bottom = this.height / -2;
       } else if (scene._camera instanceof THREE.PerspectiveCamera) {
         scene._camera.aspect = this.width / this.height;
       }
@@ -156,9 +156,7 @@ define([
         properties = {};
         properties[p] = value;
       }
-      _.each(properties, function () {
-        _.extend(this._properties, properties);
-      });
+      _.extend(this._properties, properties);
       // Update
       _.each(properties, function (val, p) {
         var split = p.split('_');
@@ -307,6 +305,11 @@ define([
       return this._objects[name];
     },
 
+    removeObject: function (name) {
+      this._object.remove(this._objects[name]._object);
+      delete this._objects[name];
+    },
+
     // Doesnt work if more than one material
     setMaterialColor: function (color) {
       this._material.color.set(color);
@@ -424,10 +427,11 @@ define([
       options = options || {};
       switch (type) {
       case 'image':
-        var loader = new THREE.TextureLoader();
+        this._material = new THREE.MeshBasicMaterial();
+        this._material.needsUpdate = true;
         var self = this;
-        this._material = new THREE.MeshBasicMaterial({
-          map: THREE.ImageUtils.loadTexture(options.src)
+        Dimensions.Loader.loadTexture(options.src, function (texture) {
+          self._material.map = texture;
         });
         break;
       case 'gradient':
@@ -486,6 +490,40 @@ define([
         return crop(st, et, t, function(tt) {
           return -Math.pow( 2, -10 * tt ) + 1;
         });
+      }
+    }
+  };
+
+  // Loader
+  Dimensions.Loader = {
+    _onLoad: function () {},
+    _textures: [],
+
+    onLoad: function (cb) {
+      Dimensions.Loader._onLoad = cb;
+    },
+
+    loadTexture: function (src, cb) {
+      Dimensions.Loader._textures.push(src);
+      var loader = new THREE.TextureLoader();
+      loader.load(
+        src,
+        function (texture) {
+          Dimensions.Loader._textures = _.without(Dimensions.Loader._textures, src);
+          if (_.isFunction(cb)) {
+            cb(texture);
+          }
+          Dimensions.Loader._afterEachLoad();
+        },
+        function (xhr) {
+          // console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        },
+        function (xhr) { console.warn('Couldn\'t load texture:', src); }
+      );
+    },
+    _afterEachLoad: function () {
+      if (Dimensions.Loader._textures.length === 0) {
+        Dimensions.Loader._onLoad();
       }
     }
   };

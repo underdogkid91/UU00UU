@@ -274,6 +274,10 @@
 /**
  * Experimetn overlays
  */
+
+.loading-overlay, .ui-overlay {
+  display: none;
+}
 @include media-query($on-palm) {
   .loading-overlay {
     display: block;

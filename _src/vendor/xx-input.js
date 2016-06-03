@@ -110,7 +110,6 @@ define(function () {
           this._value = 1 - this._value;
           break;
       }
-      console.log(this._value);
       var self = this;
       this._events.forEach(function (cb) {
         cb(self._value);
