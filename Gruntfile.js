@@ -14,8 +14,8 @@ module.exports = function(grunt) {
       options: {
         almond: true,
         baseUrl: '_src',
-        include: ['experiments/UU00UUE1.js'],
-        out: '_site/js/e/UU00UUE1.js',
+        include: ['experiments/' + filename + '.js'],
+        out: '_site/js/e/' + filename + '.js',
         shim: {
           'three': { exports: 'THREE' },
           'tuna': { exports: 'Tuna' },
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         },
         paths: {
           vendor: 'vendor/',
-          three: 'vendor/three.min',
+          three: 'vendor/three',
           tuna: 'vendor/tuna',
           LL00: 'vendor/LL00',
           underscore: 'vendor/underscore'

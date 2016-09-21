@@ -275,40 +275,35 @@
  * Experimetn overlays
  */
 
-.loading-overlay, .ui-overlay {
-  display: none;
+.loading-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $black;
+  z-index: 1000;
+  &:after {
+    content: "LOADING";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+  }
 }
-@include media-query($on-palm) {
-  .loading-overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: $black;
-    z-index: 1000;
-    &:after {
-      content: "LOADING";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: $white;
-    }
-  }
 
-  .ui-overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2001;
-    text-align: center;
-    margin: 1em 1.5em;
-    line-height: 2.5em;
-  }
+.ui-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2001;
+  text-align: center;
+  margin: 1em 1.5em;
+  line-height: 2.5em;
 }
 
 .ui-overlay-link-left,

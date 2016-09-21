@@ -27,7 +27,7 @@
 
 define(['tuna'], function (Tuna) {
   // audio context
-  window.AudioContext = window.AudioContext||window.webkitAudioContext;
+  var AudioContext = window.AudioContext||window.webkitAudioContext;
   var context = new AudioContext();
   var tuna = new Tuna(context);
 

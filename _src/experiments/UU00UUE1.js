@@ -3,29 +3,28 @@ require([
   'vendor/is-mobile.js',
   'scenes/UU00UUE1_central',
   'scenes/UU00UUE1_pattern',
-  'LL00',
+  //'LL00',
   'vendor/xx-input.js'
 ], function (
   Dimensions,
   isMobile,
   UU00UUE1CentralScene,
   UU00UUE1PatternScene,
-  LL00,
+  //LL00,
   xxInput
 ) {
-  if (!isMobile) return;
 
   // AUDIO
   // -----
-  var l = new LL00({ bps: 120, bars: 4 });
-  var base = l.addChannel('base', '/audio/UU00UUE1_base.wav');
-  // var bubbles = l.addChannel('bubbles', '/audio/UU00UUE1_bubbles.wav');
+  //var l = new LL00({ bps: 120, bars: 4 });
+  //var base = l.addChannel('base', '/audio/UU00UUE1_base.wav');
+  //// var bubbles = l.addChannel('bubbles', '/audio/UU00UUE1_bubbles.wav');
 
-  var t = base.addEffect('Tremolo', {
-    intensity: 0.75,    //0 to 1
-    rate: 3,          //0.001 to 8
-    stereoPhase: 90     //0 to 180
-  });
+  //var t = base.addEffect('Tremolo', {
+  //  intensity: 0.75,    //0 to 1
+  //  rate: 3,          //0.001 to 8
+  //  stereoPhase: 90     //0 to 180
+  //});
 
 
   // RENDERER
@@ -48,7 +47,7 @@ require([
   // LOOP
   // ----
   var current_bar = 0;
-  frame = function (ms) {
+  Dimensions.frame = function (ms) {
     var tick = (ms/(1000*60)) * 120; // 120bpm
     var beat = tick % 4;
     var beat_normalized = beat / 4;
@@ -63,7 +62,6 @@ require([
 
     current_scene.set('bar', bar);
     current_scene.set('time', beat_normalized);
-    requestAnimationFrame(frame);
 
     current_bar = bar;
   };
@@ -72,11 +70,11 @@ require([
   // connect the kit, and play
   renderer.getDOMElement().addEventListener('mousedown', _.once(function (e) {
     e.preventDefault();
-    l.play();
+    //l.play();
   }));
   renderer.getDOMElement().addEventListener('touchstart', _.once(function (e) {
     e.preventDefault();
-    l.play();
+    //l.play();
   }));
 
 
@@ -84,21 +82,28 @@ require([
   // -------
   Dimensions.Loader.onLoad(function () {
     document.body.appendChild(renderer.getDOMElement());
-    renderer.forceFullScreen();
+    renderer.forceFullScreen(2000);
     renderer.setScene(current_scene);
     renderer.renderAlive();
-
-    // start loop
-    frame(0);
+    Dimensions.startFrame();
 
     // UI
-    i = new xxInput('bottom');
-    i.onChange(function (v) {
-      central_scene.set('wave', v * 50);
-      pattern_scene.set('wave', v * 50);
-      t.intensity = v;
-      // 7.5 -> 1.5
-    });
+    if (isMobile) {
+      i = new xxInput('bottom');
+      i.onChange(function (v) {
+        central_scene.set('wave', v * 50);
+        pattern_scene.set('wave', v * 50);
+        //t.intensity = v;
+        // 7.5 -> 1.5
+      });
+    } else {
+      document.addEventListener('mousemove', function (e) {
+        var v = e.clientX / document.body.offsetWidth;
+        v = Math.abs(v * 2 - 1);
+        central_scene.set('wave', v * 50);
+        pattern_scene.set('wave', v * 50);
+      });
+    }
   });
 
 });

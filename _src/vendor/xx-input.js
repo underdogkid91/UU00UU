@@ -76,6 +76,12 @@ define(function () {
         var y = t.clientY - self.el.offsetTop;
         self._onMove(x, y);
       });
+      this.el.addEventListener('mousemove', function (e) {
+        if (!self.active) return;
+        var x = e.clientX - self.el.offsetLeft;
+        var y = e.clientY - self.el.offsetTop;
+        self._onMove(x, y);
+      });
     },
 
     setAngle: function (a) {
@@ -84,11 +90,13 @@ define(function () {
     },
 
     setActive: function () {
+      this.active = true;
       this.el.classList.remove('xx-input--inactive');
       this.el.classList.add('xx-input--active');
     },
 
     setInactive: function () {
+      this.active = false;
       this.el.classList.remove('xx-input--active');
       this.el.classList.add('xx-input--inactive');
     },

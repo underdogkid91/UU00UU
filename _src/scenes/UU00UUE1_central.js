@@ -26,8 +26,9 @@ define([
     },
 
     addObjects: function () {
+      var window_ratio = window.outerWidth / window.outerHeight;
       this.addObject('sky', new Dimensions.PlaneObject({
-        geometry: [400, 2000, 32],
+        geometry: [2000 * window_ratio, 2000, 32],
         material: PastelsMaterialsKit.sky_simple,
         position_z: -800,
         position_y: -1600,

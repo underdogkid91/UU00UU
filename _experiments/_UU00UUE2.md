@@ -1,6 +1,5 @@
 ---
 title: UU00UUE2
 published: true
-release-date: september
+release-date: mid july
 ---
-
