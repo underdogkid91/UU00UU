@@ -44,7 +44,7 @@ to `thumbnails/[name].webm` and a thumbnail to `thumbnails/[name].jpg`
 
 the final file structure, after jekyll and grunt:
 
-.
+```
 ├── index.html
 ├── e
 |   ├── UU00UUE1
@@ -67,6 +67,7 @@ the final file structure, after jekyll and grunt:
     ├── UU00UUE1-drums.wav
     ├── UU00UUE2-base.wav
     └── UU00UUE2-drums.wav
+```
 
 
 HOW TO DEPLOY
