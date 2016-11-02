@@ -1014,7 +1014,10 @@ define([
 
     onLoad: function (cb) {
       Dimensions.Loader._onLoad = cb;
-      if (!Dimensions.Loader._textures.length) Dimensions.Loader._onLoad();
+      if (!Dimensions.Loader._textures.length) {
+        this._loaded = true;
+        Dimensions.Loader._onLoad();
+      }
     },
 
     loadTexture: function (src, cb) {
