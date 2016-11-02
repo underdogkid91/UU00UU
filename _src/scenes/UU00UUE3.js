@@ -125,7 +125,7 @@ define([
           any_hovered = true;
         }
       }, this);
-      this.getObject('particles').set('frequency', any_hovered ? 100: 100000000);
+      this.getObject('particles').set('frequency', any_hovered ? 50: 100000000);
     }
   });
 

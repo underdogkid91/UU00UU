@@ -15,7 +15,7 @@ require([
 
   // SCENE
   // -----
-  var main_scene = new UU00UUE3MainScene();
+  var main_scene = null;
 
   // LOOP
   // ----
@@ -27,6 +27,7 @@ require([
   // -------
   Dimensions.Loader.onLoad(function () {
     document.body.appendChild(renderer.getDOMElement());
+    main_scene = new UU00UUE3MainScene();
     renderer.forceFullScreen(2000);
     renderer.setScene(main_scene);
     renderer.renderAlive();

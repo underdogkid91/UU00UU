@@ -9,7 +9,7 @@ define([
     _properties: {
       velocity: null,
       initial_velocity: null,
-      b: 0.97, // damping constant
+      b: 0.91, // damping constant
       ra: Math.PI / 32, // random angle applied each frame
       size: 12,
       is_dead: true
@@ -17,7 +17,7 @@ define([
 
     initialize: function (properties, options) {
       this.set('velocity', new THREE.Vector3());
-      this.set('initial_velocity', new THREE.Vector3(0, 100, 0));
+      this.set('initial_velocity', new THREE.Vector3(0, 300, 0));
       this.get('initial_velocity').applyAxisAngle(new THREE.Vector3(0, 0, 1), (Math.random() - 0.5) * Math.PI * 0.75);
       this.set('size', properties.size);
       Dimensions.Object.prototype.initialize.apply(this, arguments);
@@ -50,7 +50,7 @@ define([
 
       var velocity_length = this.get('velocity').length();
       this._object.position.add(this.get('velocity').clone().multiplyScalar(delta/1000));
-      this.set('scale', (-velocity_length / 100) * 0.7 + 1.3);
+      this.set('scale', (-velocity_length / 300) * 0.2 + 1.3);
       var opacity = (velocity_length / 100) * 2;
       opacity = opacity > 1 ? 1 : opacity;
       this.getObject('star')._material.opacity = opacity;

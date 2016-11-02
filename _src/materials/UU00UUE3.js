@@ -51,7 +51,7 @@ define([
     // star
     star: new Dimensions.Material('alphamap', {
       src: '/textures/star_alpha_map.png',
-      bg: 'white',
+      bg: colors[0].dark,
       opacity: 1
     }),
 
