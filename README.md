@@ -84,14 +84,6 @@ the final file structure, after everything is built
 
 
 
-
-HOW TO ADD AN EXPERIMENT
-------------------------
-
-
-
-
-
 HOW TO DEPLOY
 -------------
 
