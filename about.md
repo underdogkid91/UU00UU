@@ -21,10 +21,13 @@ attracted by intuitive ones, so the user discover something unexpected
 without the need of explanation
 
 
-## updates and contact
-you can subscribe to the UU00UU newsletter to recieibe emails only when
-there's a new webtoy (which is not that often)
+## updates
+you can subscribe to the UU00UU newsletter to be notified via email when
+i add a new webtoy (really, only when that happens, which is not that
+often)
 
+
+## contact
 you can contact me to talk about three.js, 3d, digital, music, life or
 whatever you feel like. also i'm open to collaborating with other
 artists (musicians, 3d artists, web makers...). my email is
