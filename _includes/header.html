@@ -16,9 +16,19 @@
       <p class="header-description">{{ site.description }}</p>
 
       <div class="nav">
-        <a class="nav-link" href="http://uu00uu.tumblr.com">process</a>
-        <a class="nav-link nav-link-home nav-link-active" href="{{ site.baseurl }}">experiments</a>
-        <a class="nav-link" href="{{ site.baseurl | append: '/about' }}">about</a>
+        {% for item in site.data.navigation.header %}
+          {% assign find_path = (page.path | split: item.link) | size %}
+          {% assign item_class = "" %}
+          {% if find_path > 1 %}
+            {% assign item_class = "nav-link-active" %}
+          {% endif %}
+
+          {% assign link = item.link %}
+          {% if item.link == "index" %}
+            {% assign link = "" %}
+          {% endif %}
+          <a class="nav-link {{ item_class }}" href="{{ link | prepend: '/' | prepend: site.baseurl }}">{{ item.name }}</a>
+        {% endfor %}
       </div>
     {% endunless %}
 
