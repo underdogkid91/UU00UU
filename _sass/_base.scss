@@ -96,6 +96,7 @@ code {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
+  margin-top: 3rem;
   font-size: $base-font-size;
   font-weight: bold;
   color: $gray-lighter;
@@ -129,13 +130,8 @@ a {
 }
 
 .wrapper-small {
-  max-width: $content-width / 4;
-  min-width: 300px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 1em;
-  padding-left: 1em;
-  @extend %clearfix;
+  max-width: $content-width / 2;
+  padding: 0;
 }
 
 

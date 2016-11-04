@@ -10,9 +10,16 @@
   display: block;
   width: 100px;
   height: 77px;
-  background: transparent url(/assets/icon.svg) no-repeat bottom center;
   margin: 0 auto;
-  text-indent: -99999px;
+  span {
+    text-indent: -99999px;
+    display: block;
+  }
+  svg {
+    @include media-query($on-palm) {
+      display: none;
+    }
+  }
 }
 
 .header-description {
@@ -24,6 +31,7 @@
     text-align: left;
     .nav {
       float: right;
+      margin: 0.5rem 0;
     }
   }
   .header-logo {
@@ -89,7 +97,7 @@
  * Nav
  */
 .nav {
-  margin: 0.5em 0;
+  margin: 1em 0 0;
   display: inline-block;
 }
 .nav-link {
@@ -229,6 +237,7 @@
   display: none;
   transform: rotate(45deg);
   transform-origin: left center;
+  border-radius: 3px;
 }
 
 @include media-query($on-palm) {
@@ -331,7 +340,7 @@
   display: block;
   width: 44px;
   height: 44px;
-  margin: 0 auto;
+  margin: 5rem auto 0;
   background: transparent url(/assets/icon.svg) no-repeat top center;
   opacity: 0.5;
 }

@@ -10,7 +10,10 @@
 
   <div class="wrapper">
 
-    <a class="header-logo" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="header-logo" href="{{ site.baseurl }}/">
+      {% include logo.svg %}
+      <span>{{ site.title }}</span>
+    </a>
 
     {% unless layout.without_nav %}
       <p class="header-description">{{ site.description }}</p>
