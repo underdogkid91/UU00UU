@@ -1,6 +1,6 @@
 header:
-  - experiments:
-    name: experiments
+  - webtoys:
+    name: webtoys
     link: "index"
   - source:
     name: source
