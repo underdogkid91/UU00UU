@@ -7,10 +7,19 @@ permalink: /about/
 UU00UU is a collection of webtoys with the objective of learning and
 exploring interactive graphic 3d visuals.
 
-## stack and source
-all the code is open source and available in github. the site is built
-with jekyll and the webtoys with dimensions.js, my own framework on top
-of three.js
+## style and subjects of interest
+my style is inspired by low poly games. i don't use lights, instead
+i use colorful colorful textures, usually featuring gradients.
+
+at the moment i don't work with characters, but mostly with abstract
+shapes and objects. i'm interested in bringing them to live using
+interesting compositions, morphing, and visual effects (mostly using
+particles).
+
+finally, i always try to add some kind of interaction. i'm mostly
+attracted by intuitive ones, so the user discover something unexpected
+without the need of explanation.
+
 
 ## updates and contact
 you can subscribe to the UU00UU newsletter to recieibe emails only when
