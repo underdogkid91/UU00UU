@@ -3,19 +3,28 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
   var $pointer = $('.exp-pointer').first().clone();
   var mouse_position = { x:0, y:0 };
 
+  var weird_chars_string = function (j) {
+    var weird_chars = "µ¾Øϭλж";
+    var string = [];
+    while (j > 0) {
+      string.push(weird_chars.charAt(Math.floor(Math.random() * weird_chars.length)));
+      j--;
+    }
+    return string.join('');
+  };
   var animate_pointer = function ($pointer) {
     // setup
     var final_text = $pointer.text();
-    var current_text = final_text.replace(/./ig, '-');
+    var current_text = weird_chars_string(final_text.length);
     $pointer.text(current_text);
     var i = 0;
     var animate = function () {
-      current_text = current_text.substr(0, i) + final_text [i] + current_text.substr(i + 1);
+      current_text = current_text.substr(0, i) + final_text [i] + weird_chars_string(final_text.length - i - 1);
       $pointer.text(current_text);
       i++;
       if (current_text !== final_text) setTimeout(animate, 50);
     };
-    setTimeout(animate, 150);
+    setTimeout(animate, 300);
   };
 
   $(document).on('mousemove', function(e) {
@@ -28,6 +37,9 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
     $pointer = $(this).parent().find('.exp-pointer').clone();
     $pointer.appendTo('body');
     $pointer.show();
+    setTimeout(function () {
+      $pointer.addClass('visible');
+    }, 0);
     $pointer.css({
       position: 'absolute',
       left: mouse_position.x + 10,

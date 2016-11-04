@@ -235,9 +235,16 @@
   padding: 3px $spacing-unit / 2;
   margin: -3px 0;
   display: none;
-  transform: rotate(45deg);
   transform-origin: left center;
   border-radius: 3px;
+  transform: rotate(45deg) scale(0.1);
+  opacity: 0;
+  transition: opacity, transform 0.15s ease-in;
+  transition-delay: 0.2s;
+  &.visible {
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+  }
 }
 
 @include media-query($on-palm) {
