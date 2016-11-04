@@ -1,6 +1,7 @@
 $(function () {
 if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   var $pointer = $('.exp-pointer').first().clone();
+  var video_el;
   var mouse_position = { x:0, y:0 };
 
   var weird_chars_string = function (j) {
@@ -35,6 +36,9 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
   $('.grid .exp-link').on('mouseover', function (e) {
     $pointer.remove();
     $pointer = $(this).parent().find('.exp-pointer').clone();
+    video_el = $(this).parent().find('video')[0];
+    video_el.currentTime = 0;
+    video_el.play();
     $pointer.appendTo('body');
     $pointer.show();
     setTimeout(function () {
@@ -54,6 +58,8 @@ if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navig
     });
   });
   $('.grid .exp-link').on('mouseleave', function () {
+    video_el.currentTime = 0;
+    video_el.pause();
     $pointer.remove();
   });
 }

@@ -5,7 +5,7 @@
 <div class="exp">
   {% if include.e.published %}
     <img class="exp-img" src="{{ include.e.title | prepend: '/thumbnails/' | prepend: site.baseurl | append: '.jpg'}}"/>
-    <video class="exp-video" src="{{ include.e.title | prepend: '/thumbnails/' | prepend: site.baseurl | append: '.webm'}}" autoplay loop style="{{ video_style }}"> </video>
+    <video class="exp-video" src="{{ include.e.title | prepend: '/thumbnails/' | prepend: site.baseurl | append: '.webm'}}" loop style="{{ video_style }}"> </video>
     {% if include.link %}
       <a class="exp-link" href="{{ include.e.url | prepend: site.baseurl }}"></a>
       <div class="exp-pointer">{{ include.e.title }}</div>

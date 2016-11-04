@@ -113,10 +113,10 @@
   &:hover {
     background: $gray !important;
   }
-}
-
-.nav-link-active {
-  background: $gray;
+  &:active,
+  .nav-link-active {
+    background: $gray;
+  }
 }
 
 
@@ -239,7 +239,7 @@
   border-radius: 3px;
   transform: rotate(45deg) scale(0.1);
   opacity: 0;
-  transition: opacity, transform 0.15s ease-in;
+  transition: opacity, transform 0.13s ease-in;
   transition-delay: 0.2s;
   &.visible {
     transform: rotate(45deg) scale(1);
