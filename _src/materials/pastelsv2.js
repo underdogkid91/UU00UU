@@ -1,5 +1,5 @@
 define([
-  'vendor/dimensions.js'
+  'vendor/dimensions'
 ], function (
   Dimensions
 ) {

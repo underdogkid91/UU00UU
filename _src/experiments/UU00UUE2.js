@@ -1,5 +1,5 @@
 require([
-  'vendor/dimensions.js',
+  'vendor/dimensions',
   'scenes/UU00UUE2'
 ], function (
   Dimensions,

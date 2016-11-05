@@ -1,7 +1,7 @@
 define([
-  'vendor/dimensions.js',
-  'materials/pastels.js',
-  'objects/cola.js'
+  'vendor/dimensions',
+  'materials/pastels',
+  'objects/cola'
 ], function (
   Dimensions,
   PastelsMaterialsKit,

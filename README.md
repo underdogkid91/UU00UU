@@ -1,18 +1,47 @@
+
+```
+/\ \/\ \/\ \/\ \  /'__`\  /'__`\/\ \/\ \/\ \/\ \    
+\ \ \ \ \ \ \ \ \/\ \/\ \/\ \/\ \ \ \ \ \ \ \ \ \   
+ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  
+  \ \ \_\ \ \ \_\ \ \ \_\ \ \ \_\ \ \ \_\ \ \ \_\ \ 
+   \ \_____\ \_____\ \____/\ \____/\ \_____\ \_____\
+    \/_____/\/_____/\/___/  \/___/  \/_____/\/_____/
+
+ exploring nonsense 3d interactions through webtoys
+
+空 空 空 空 空 空 空 空 空 空 空 空 空 空 空 空 空 空
+```
+
+[ ~VISIT HERE ~](https://uu00uu.surge.sh/)
+
+
+
 HOW TO DEVELOP
 --------------
 
 ### setup
+make sure you installed jekyll and grunt in your computer
 
-- make sure you installed jekyll and grunt in your computer
-- `$ bundle install`
-- `$ npm install`
-- `$ jekyll build`
-- `$ grunt build`
+```
+$ bundle install
+$ npm install
+```
 
-in order to create thumbnails, you'll need ffmpeg.
+in order to create thumbnails, you'll need ffmpeg
+in order to deploy to surge, you'll need surge :v:
 
-### development server
-run `jekyll serve` to create a local server at localhost:4000
+### development
+for info on how to develop for jekyll, visit [jekyll's awesome docs](https://jekyllrb.com/docs/home/).
+
+to create a local server that serves the experiments/webtoys run:
+
+```
+$ grunt dev
+```
+in development there's no compilation of files of any type, in order
+to avoid compilation time and make creating webtoys fun – that's
+the point after all. for production, almond is used to compile all
+the scripts, more on that later.
 
 ### adding experiments
 
@@ -21,14 +50,17 @@ run `jekyll serve` to create a local server at localhost:4000
 ---
 title: [name]
 published: false
-release-date: mid july
 ---
 ```
 
-2. create experiment in `_src/experiments/[name].js` using requirejs,
-grunt will compile it and export it to `_site/js/e/[name].js`.
+2. create an experiment in `_src/experiments/[name].js`. dimensions.js
+is used. folder structure:
+  - experiments
+  - scenes
+  - objects
+  - materials
 
-3. textures can be added to `textures/` and sounds to `audio/`
+3. textures can be added to `textures/`
 
 4. when ready to publish: change `published` to `true`, add a video
 to `_thumbnails/[name].mov` and run the following commands to create
@@ -51,10 +83,8 @@ everything and serving a staging server locally.
 run `$ grunt staging` to build and site the stagin will be served to
 localhost:4001
 
-TODO
 
-
-the final file structure, after everything is built
+the final folders structure, after everything is built
 ```
 ├── index.html
 ├── e
@@ -63,8 +93,8 @@ the final file structure, after everything is built
 |   └── UU00UUE2
 |       └── index.html
 ├── js
-|   ├── UU00UUE1.js
-|   └── UU00UUE2.js
+|   ├── e/UU00UUE1.js
+|   └── e/UU00UUE2.js
 ├── thumbnails
 |   ├── UU00UUE1.jpg
 |   ├── UU00UUE1.webm
@@ -81,7 +111,6 @@ the final file structure, after everything is built
     ├── UU00UUE2-base.wav
     └── UU00UUE2-drums.wav
 ```
-
 
 
 HOW TO DEPLOY

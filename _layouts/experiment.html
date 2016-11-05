@@ -21,4 +21,10 @@ with_back_link: true
 </div>
 
 <link rel="stylesheet" href="{{ "/assets/xx-ui.css" | prepend: site.baseurl }}">
-<script src="{{ page.title | prepend: '/js/e/' | append: '.js' }}"></script>
+<script src="/assets/js/vendor/require.js"></script>
+{% if jekyll.environment != "production" %}
+  <script src="/src/config.js"></script>
+  <script src="{{ page.title | prepend: '/src/experiments/' | append: '.js' }}"></script>
+{% else %}
+  <script src="{{ page.title | prepend: '/js/e/' | append: '.js' }}"></script>
+{% endif %}

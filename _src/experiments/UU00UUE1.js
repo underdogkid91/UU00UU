@@ -1,31 +1,16 @@
 require([
-  'vendor/dimensions.js',
-  'vendor/is-mobile.js',
+  'vendor/dimensions',
+  'vendor/is-mobile',
   'scenes/UU00UUE1_central',
   'scenes/UU00UUE1_pattern',
-  //'LL00',
-  'vendor/xx-input.js'
+  'vendor/xx-input'
 ], function (
   Dimensions,
   isMobile,
   UU00UUE1CentralScene,
   UU00UUE1PatternScene,
-  //LL00,
   xxInput
 ) {
-
-  // AUDIO
-  // -----
-  //var l = new LL00({ bps: 120, bars: 4 });
-  //var base = l.addChannel('base', '/audio/UU00UUE1_base.wav');
-  //// var bubbles = l.addChannel('bubbles', '/audio/UU00UUE1_bubbles.wav');
-
-  //var t = base.addEffect('Tremolo', {
-  //  intensity: 0.75,    //0 to 1
-  //  rate: 3,          //0.001 to 8
-  //  stereoPhase: 90     //0 to 180
-  //});
-
 
   // RENDERER
   // --------
@@ -65,17 +50,6 @@ require([
 
     current_bar = bar;
   };
-
-
-  // connect the kit, and play
-  renderer.getDOMElement().addEventListener('mousedown', _.once(function (e) {
-    e.preventDefault();
-    //l.play();
-  }));
-  renderer.getDOMElement().addEventListener('touchstart', _.once(function (e) {
-    e.preventDefault();
-    //l.play();
-  }));
 
 
   // ON LOAD

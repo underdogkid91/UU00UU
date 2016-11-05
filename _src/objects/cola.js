@@ -1,6 +1,6 @@
 define([
-  'vendor/dimensions.js',
-  'materials/pastels.js'
+  'vendor/dimensions',
+  'materials/pastels'
 ], function (
   Dimensions,
   PastelsMaterialsKit

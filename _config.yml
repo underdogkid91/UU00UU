@@ -31,9 +31,9 @@ collections:
     output: true
     permalink: /e/:path/
 # The source code for the experiments is in src
-# The grunt build exports
-exclude: [_src]
-keep_files: [js/e]
+# The grunt build exports, and copy for dev
+exclude: [_src, node_modules, package.json, README.md, Gemfile, Gemfile.lock, Gruntfile.js]
+keep_files: [js/e, src]
 
 # Plugins
 gems:

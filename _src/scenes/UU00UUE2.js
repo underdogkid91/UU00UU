@@ -1,5 +1,5 @@
 define([
-  'vendor/dimensions.js',
+  'vendor/dimensions',
   'materials/pastelsv2',
   'objects/constellation'
 ], function (
